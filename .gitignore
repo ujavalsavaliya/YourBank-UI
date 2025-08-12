@@ -1,15 +1,17 @@
+# ==========================
+# React + Vite
+# ==========================
+
 # Dependencies
 node_modules/
 
 # Production build
 dist/
 
-# Local env files
+# Environment variables (keep secrets out of git)
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+!.env.example   # Allow only a safe example env file
 
 # Logs
 npm-debug.log*
@@ -25,7 +27,34 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 
-# Optional: lock files (if you don’t want to commit them)
+# Optional: lock files (uncomment if not committing them)
 # package-lock.json
 # yarn.lock
 # pnpm-lock.yaml
+
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
