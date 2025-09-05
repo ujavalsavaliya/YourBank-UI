@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx"; // ✅ Ensure file name matches exactly
 import "./index.css";
 import {
   Route,
@@ -21,7 +21,7 @@ import Signup from "./components/Signup.jsx";
 import Deposit from "./components/Dashboard/Deposit.jsx";
 import Withdraw from "./components/Dashboard/Withdraw.jsx";
 import Transfer from "./components/Dashboard/Transfer.jsx";
-import Transition from "./components/Dashboard/Transition.jsx";
+import Transition from "./components/Dashboard/Transition.jsx"; // ✅ spelling fixed
 import Chatbot from "./components/Dashboard/Chatbot.jsx";
 
 const router = createBrowserRouter(
@@ -74,7 +74,7 @@ const router = createBrowserRouter(
           path="/transaction"
           element={
             <ProtectedRoute>
-              <Trasition />
+              <Transition /> {/* ✅ fixed typo */}
             </ProtectedRoute>
           }
         />
