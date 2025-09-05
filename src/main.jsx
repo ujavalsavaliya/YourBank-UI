@@ -21,7 +21,7 @@ import Signup from "./Component/Signup.jsx";
 import Deposit from "./Component/Dashboard/Deposit.jsx";
 import Withdraw from "./Component/Dashboard/Withdraw.jsx";
 import Transfer from "./Component/Dashboard/Transfer.jsx";
-import Transition from "./Component/Dashboard/Transition.jsx"; // ✅ spelling fixed
+import Transition from "./Component/Dashboard/Trasition.jsx";
 import Chatbot from "./Component/Dashboard/Chatbot.jsx";
 
 const router = createBrowserRouter(
