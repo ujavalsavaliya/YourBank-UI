@@ -9,10 +9,10 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Home from "./Pages/Home.jsx";
-import Review from "./Pages/Review.jsx";
-import Security from "./Pages/Security.jsx";
-import Investment from "./Pages/Investment.jsx";
+import Home from "./Pages/home.jsx";
+import Review from "./Pages/review.jsx";
+import Security from "./Pages/security.jsx";
+import Investment from "./Pages/investment.jsx";
 import AuthPage from "./Pages/AuthPage.jsx";
 import Login from "./Component/Login.jsx";
 import Dashboard from "./Component/Dashboard.jsx";
