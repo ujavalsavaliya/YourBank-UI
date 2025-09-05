@@ -14,7 +14,7 @@ import Review from "./Pages/review.jsx";
 import Security from "./Pages/security.jsx";
 import Investment from "./Pages/investment.jsx";
 import AuthPage from "./Pages/AuthPage.jsx";
-import Login from "./Component/login.jsx";
+import Login from "./Component/Login.jsx";
 import Dashboard from "./Component/Dashboard.jsx";
 import DashboardPage from "./Pages/DashboardPage.jsx";
 import Signup from "./Component/Signup.jsx";
