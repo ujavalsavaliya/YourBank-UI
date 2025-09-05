@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import ProtectedRoute from "./Component/ProtectedRoute.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import "./index.css";
 import {
   Route,
@@ -9,20 +9,20 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Home from "./Pages/home.jsx";
-import Review from "./Pages/review.jsx";
-import Security from "./Pages/security.jsx";
-import Investment from "./Pages/investment.jsx";
-import AuthPage from "./Pages/AuthPage.jsx";
-import Login from "./Component/Login.jsx";
-import Dashboard from "./Component/Dashboard.jsx";
-import DashboardPage from "./Pages/DashboardPage.jsx";
-import Signup from "./Component/Signup.jsx";
-import Deposit from "./Component/Dashboard/Deposit.jsx";
-import Withdraw from "./Component/Dashboard/Withdraw.jsx";
-import Transfer from "./Component/Dashboard/Transfer.jsx";
-import Trasition from "./Component/Dashboard/Trasition.jsx";
-import Chatbot from "./Component/Dashboard/chatbot.jsx";
+import Home from "./pages/Home.jsx";
+import Review from "./pages/Review.jsx";
+import Security from "./pages/Security.jsx";
+import Investment from "./pages/Investment.jsx";
+import AuthPage from "./pages/AuthPage.jsx";
+import Login from "./components/Login.jsx";
+import Dashboard from "./components/Dashboard.jsx";
+import DashboardPage from "./pages/DashboardPage.jsx";
+import Signup from "./components/Signup.jsx";
+import Deposit from "./components/Dashboard/Deposit.jsx";
+import Withdraw from "./components/Dashboard/Withdraw.jsx";
+import Transfer from "./components/Dashboard/Transfer.jsx";
+import Transition from "./components/Dashboard/Transition.jsx";
+import Chatbot from "./components/Dashboard/Chatbot.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
