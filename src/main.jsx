@@ -22,7 +22,7 @@ import Deposit from "./Component/Dashboard/Deposit.jsx";
 import Withdraw from "./Component/Dashboard/Withdraw.jsx";
 import Transfer from "./Component/Dashboard/Transfer.jsx";
 import Transition from "./Component/Dashboard/Trasition.jsx";
-import Chatbot from "./Component/Dashboard/Chatbot.jsx";
+import Chatbot from "./Component/Dashboard/chatbot.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
