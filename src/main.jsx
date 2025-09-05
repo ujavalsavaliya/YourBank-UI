@@ -9,20 +9,20 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Home from "./pages/Home.jsx";
-import Review from "./pages/Review.jsx";
-import Security from "./pages/Security.jsx";
-import Investment from "./pages/Investment.jsx";
-import AuthPage from "./pages/AuthPage.jsx";
-import Login from "./components/Login.jsx";
-import Dashboard from "./components/Dashboard.jsx";
-import DashboardPage from "./pages/DashboardPage.jsx";
-import Signup from "./components/Signup.jsx";
-import Deposit from "./components/Dashboard/Deposit.jsx";
-import Withdraw from "./components/Dashboard/Withdraw.jsx";
-import Transfer from "./components/Dashboard/Transfer.jsx";
-import Transition from "./components/Dashboard/Transition.jsx"; // ✅ spelling fixed
-import Chatbot from "./components/Dashboard/Chatbot.jsx";
+import Home from "./Pages/Home.jsx";
+import Review from "./Pages/Review.jsx";
+import Security from "./Pages/Security.jsx";
+import Investment from "./Pages/Investment.jsx";
+import AuthPage from "./Pages/AuthPage.jsx";
+import Login from "./Component/Login.jsx";
+import Dashboard from "./Component/Dashboard.jsx";
+import DashboardPage from "./Pages/DashboardPage.jsx";
+import Signup from "./Component/Signup.jsx";
+import Deposit from "./Component/Dashboard/Deposit.jsx";
+import Withdraw from "./Component/Dashboard/Withdraw.jsx";
+import Transfer from "./Component/Dashboard/Transfer.jsx";
+import Transition from "./Component/Dashboard/Transition.jsx"; // ✅ spelling fixed
+import Chatbot from "./Component/Dashboard/Chatbot.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
