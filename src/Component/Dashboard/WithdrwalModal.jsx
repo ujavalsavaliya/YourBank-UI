@@ -45,8 +45,9 @@ export default function WithdrawModal({
         try {
           const errData = await response.json();
           errorMessage = errData.message || errorMessage;
-        } catch (_) {
-          // If server didn't return JSON
+        } catch (err) {
+          // Ignore JSON parsing error
+          console.log(err);
         }
         throw new Error(errorMessage);
       }

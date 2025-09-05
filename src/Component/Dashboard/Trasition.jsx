@@ -4,6 +4,24 @@ import { jwtDecode } from "jwt-decode";
 import historyIcon from "./assets/history.png";
 import { FaChevronDown } from "react-icons/fa";
 
+// Custom hook to detect screen size
+const useBreakpoint = (breakpoint = 640) => {
+  const [isSmallScreen, setIsSmallScreen] = useState(
+    window.innerWidth < breakpoint
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < breakpoint);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [breakpoint]);
+
+  return isSmallScreen;
+};
+
 export default function Transaction() {
   const [showMore, setShowMore] = useState(false);
   const [typeFilter, setTypeFilter] = useState("All Type");
@@ -13,6 +31,8 @@ export default function Transaction() {
   const [openDropdown, setOpenDropdown] = useState("");
   const [transactions, setTransactions] = useState([]);
   const [filteredTransactions, setFilteredTransactions] = useState([]);
+
+  const isSmallScreen = useBreakpoint();
 
   const types = ["All Type", "Deposit", "Withdraw", "Transfer"];
   const dates = ["Today", "Last 7 Days", "This Month", "Last 3 Month"];
@@ -106,29 +126,31 @@ export default function Transaction() {
   };
 
   return (
-    <div className="ml-60 p-6 bg-gray-100 min-h-screen relative">
-      <div className="bg-white rounded-lg shadow-md p-6">
-        {/* Heading */}
-        <div className="mb-8 flex justify-between items-center">
-          <h1 className="text-3xl font-semibold text-gray-800">Transaction</h1>
+    <div className="md:ml-60 p-4 sm:p-6 bg-gray-100 min-h-screen relative">
+      <div className="bg-white rounded-lg shadow-md p-4 sm:p-6">
+        {/* Heading and Search */}
+        <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <h1 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 sm:mb-0">
+            Transaction
+          </h1>
           <input
             type="text"
             placeholder="Search..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="px-4 py-2 border border-gray-300 rounded-md bg-indigo-100 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            className="w-full sm:w-auto px-4 py-2 border border-gray-300 rounded-md bg-indigo-100 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
           />
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap gap-6 mb-10 relative z-10">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 mb-8 sm:mb-10 relative z-10">
           {/* Type Dropdown */}
-          <div className="relative">
+          <div className="relative w-full sm:w-40">
             <button
               onClick={() =>
                 setOpenDropdown(openDropdown === "type" ? "" : "type")
               }
-              className="px-4 py-2 border border-gray-300 rounded-md text-sm bg-white shadow-sm w-40 text-left flex justify-between items-center hover:bg-gray-50 transition"
+              className="px-4 py-2 border border-gray-300 rounded-md text-sm bg-white shadow-sm w-full text-left flex justify-between items-center hover:bg-gray-50 transition"
             >
               {typeFilter}{" "}
               <FaChevronDown
@@ -138,7 +160,7 @@ export default function Transaction() {
               />
             </button>
             {openDropdown === "type" && (
-              <div className="absolute mt-1 w-40 rounded-md shadow-lg bg-white border border-gray-200 transition-all duration-200">
+              <div className="absolute mt-1 w-full rounded-md shadow-lg bg-white border border-gray-200 transition-all duration-200">
                 {types.map((type) => (
                   <div
                     key={type}
@@ -153,12 +175,12 @@ export default function Transaction() {
           </div>
 
           {/* Date Dropdown */}
-          <div className="relative">
+          <div className="relative w-full sm:w-44">
             <button
               onClick={() =>
                 setOpenDropdown(openDropdown === "date" ? "" : "date")
               }
-              className="px-4 py-2 border border-gray-300 rounded-md text-sm bg-white shadow-sm w-44 text-left flex justify-between items-center hover:bg-gray-50 transition"
+              className="px-4 py-2 border border-gray-300 rounded-md text-sm bg-white shadow-sm w-full text-left flex justify-between items-center hover:bg-gray-50 transition"
             >
               {dateFilter}{" "}
               <FaChevronDown
@@ -168,7 +190,7 @@ export default function Transaction() {
               />
             </button>
             {openDropdown === "date" && (
-              <div className="absolute mt-1 w-44 rounded-md shadow-lg bg-white border border-gray-200 transition-all duration-200">
+              <div className="absolute mt-1 w-full rounded-md shadow-lg bg-white border border-gray-200 transition-all duration-200">
                 {dates.map((date) => (
                   <div
                     key={date}
@@ -228,36 +250,68 @@ export default function Transaction() {
           <div className="overflow-x-auto">
             <table className="min-w-full bg-white border border-gray-200 rounded-xl shadow-sm">
               <thead>
-                <tr className="bg-gray-100 text-gray-700 text-sm font-semibold">
-                  <th className="px-4 py-3 text-left">No</th>
-                  <th className="px-4 py-3 text-left">Date</th>
-                  <th className="px-4 py-3 text-left">Time</th>
-                  <th className="px-4 py-3 text-left">Amount</th>
-                  <th className="px-4 py-3 text-left">Type</th>
-                  <th className="px-4 py-3 text-left">Method</th>
-                  <th className="px-4 py-3 text-left">Action</th>
+                <tr className="bg-gray-100 text-gray-700 text-xs sm:text-sm font-semibold">
+                  <th className="px-2 sm:px-4 py-2 sm:py-3 text-left">No</th>
+                  <th className="px-2 sm:px-4 py-2 sm:py-3 text-left">Date</th>
+                  <th className="px-2 sm:px-4 py-2 sm:py-3 text-left">Time</th>
+                  <th className="px-2 sm:px-4 py-2 sm:py-3 text-left">
+                    Amount
+                  </th>
+                  <th className="px-2 sm:px-4 py-2 sm:py-3 text-left">Type</th>
+                  <th className="px-2 sm:px-4 py-2 sm:py-3 text-left">
+                    Method
+                  </th>
+                  {!isSmallScreen && (
+                    <th className="px-2 sm:px-4 py-2 sm:py-3 text-left">
+                      Action
+                    </th>
+                  )}
                 </tr>
               </thead>
               <tbody>
-                {filteredTransactions
-                  .slice(0, showMore ? filteredTransactions.length : 10)
-                  .map((tx, idx) => (
-                    <tr key={idx} className="text-sm text-gray-700 border-t">
-                      <td className="px-4 py-3">#{idx + 1}</td>
-                      <td className="px-4 py-3">{tx.date.split("T")[0]}</td>
-                      <td className="px-4 py-3">
-                        {tx.date.split("T")[1].substring(0, 8)}
-                      </td>
-                      <td className="px-4 py-3">₹{tx.amount}</td>
-                      <td className="px-4 py-3">{tx.type}</td>
-                      <td className="px-4 py-3">{tx.method || "N/A"}</td>
-                      <td className="px-4 py-3">
-                        <button className="text-indigo-600 font-semibold hover:underline">
-                          View
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
+                {filteredTransactions.length > 0 ? (
+                  filteredTransactions
+                    .slice(0, showMore ? filteredTransactions.length : 10)
+                    .map((tx, idx) => (
+                      <tr
+                        key={idx}
+                        className="text-xs sm:text-sm text-gray-700 border-t"
+                      >
+                        <td className="px-2 sm:px-4 py-2 sm:py-3">
+                          #{idx + 1}
+                        </td>
+                        <td className="px-2 sm:px-4 py-2 sm:py-3">
+                          {tx.date.split("T")[0]}
+                        </td>
+                        <td className="px-2 sm:px-4 py-2 sm:py-3">
+                          {tx.date.split("T")[1].substring(0, 8)}
+                        </td>
+                        <td className="px-2 sm:px-4 py-2 sm:py-3">
+                          ₹{tx.amount}
+                        </td>
+                        <td className="px-2 sm:px-4 py-2 sm:py-3">{tx.type}</td>
+                        <td className="px-2 sm:px-4 py-2 sm:py-3">
+                          {tx.method || "N/A"}
+                        </td>
+                        {!isSmallScreen && (
+                          <td className="px-2 sm:px-4 py-2 sm:py-3">
+                            <button className="text-indigo-600 font-semibold hover:underline">
+                              View
+                            </button>
+                          </td>
+                        )}
+                      </tr>
+                    ))
+                ) : (
+                  <tr className="text-xs sm:text-sm text-gray-700 border-t">
+                    <td
+                      colSpan={isSmallScreen ? 6 : 7}
+                      className="text-center px-2 sm:px-4 py-2 sm:py-3 text-gray-500"
+                    >
+                      No transactions found.
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
 

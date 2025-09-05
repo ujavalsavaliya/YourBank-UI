@@ -64,3 +64,15 @@
 .animate-scaleOut {
   animation: scaleOut 0.3s ease-in forwards;
 }
+
+@keyframes slideDown {
+  0% { transform: translateY(-30px); opacity: 0; }
+  30% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-30px); opacity: 0; }
+}
+
+.animate-slideDown {
+  animation: slideDown 2s ease-in-out forwards;
+}
+

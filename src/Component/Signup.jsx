@@ -25,7 +25,6 @@ export default function Signup() {
 
   const validate = () => {
     const newErrors = {};
-
     if (!formData.username.trim()) newErrors.username = "Username is required";
     if (!formData.email.trim()) newErrors.email = "Email is required";
     else if (!/\S+@\S+\.\S+/.test(formData.email))
@@ -78,9 +77,9 @@ export default function Signup() {
   };
 
   return (
-    <div className="flex h-[76vh] font-poppins overflow-hidden max-w-[640px] mx-auto mt-25 text-[15px]">
-      {/* Left Side */}
-      <div className="relative w-[47.5%]">
+    <div className="flex flex-col md:flex-row h-[76vh] font-poppins overflow-hidden max-w-[640px] mx-auto mt-25 text-[15px]">
+      {/* Left Side (Handshake Image) */}
+      <div className="relative w-[47.5%] hidden md:block">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${handshake})` }}
@@ -98,8 +97,8 @@ export default function Signup() {
         </div>
       </div>
 
-      {/* Right Side */}
-      <div className="w-[52.5%] flex items-center justify-center px-4 py-6 bg-white">
+      {/* Right Side (Form) */}
+      <div className="w-full md:w-[52.5%] flex items-center justify-center px-4 py-6 bg-white">
         <form
           className="w-full max-w-[260px] text-center"
           onSubmit={handleSubmit}
