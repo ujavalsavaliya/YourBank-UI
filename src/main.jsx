@@ -15,7 +15,7 @@ import Security from "./Pages/security.jsx";
 import Investment from "./Pages/investment.jsx";
 import AuthPage from "./Pages/AuthPage.jsx";
 import Login from "./Component/Login.jsx";
-import Dashboard from "./Component/Dashboard.jsx";
+import Dashboard from "./Component/dashboard.jsx";
 import DashboardPage from "./Pages/DashboardPage.jsx";
 import Signup from "./Component/Signup.jsx";
 import Deposit from "./Component/Dashboard/Deposit.jsx";
